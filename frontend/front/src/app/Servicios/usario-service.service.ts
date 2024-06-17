@@ -21,7 +21,7 @@ export class UsarioServiceService {
 
   index(): Observable<Usuario[]>{
     return this.httpClient.get<Usuario[]>(
-      this.api+'usuario',this.httpOptions
+      this.api+'producto',this.httpOptions
     ).pipe(
       catchError(this.errorHandler)
     )

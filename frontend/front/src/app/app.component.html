@@ -1,2 +1,20 @@
-<app-index />
-<router-outlet />
+<mat-toolbar color="secondary">
+  <button mat-button>Home</button>
+  <button mat-button>Pantalones</button>
+  <button mat-button>Acerca de</button>
+  <div class="ms-auto">
+    <button mat-button (click)="comprar()">
+      <mat-icon>add_shopping_cart</mat-icon>
+    </button>
+  </div>
+</mat-toolbar>
+
+<app-index (nombre)="manejarNombreEmitido($event)" (numero)="manejarNumeroEmitido($event)"></app-index>
+
+<div class="carrito mt-1" *ngIf="mostrar">
+  <ul>
+    <li><app-carrito [nombre]="nombre" [cantidad]="cantidad"></app-carrito></li>
+  </ul>
+</div>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,13 @@
+.carrito {
+  border: 1px solid;
+  position: fixed; /* Usar posición fija para mantenerlo en su lugar */
+  top: 60px; /* Ajusta este valor a la altura del menú superior */
+  right: 0;
+  width: 20%; /* Ancho ajustado para el menú */
+  height: calc(100vh - 60px); /* Ajusta la altura para que reste la altura del menú */
+  box-sizing: border-box; /* Incluye padding y border en el ancho y alto */
+  overflow-y: auto; /* Permite desplazamiento vertical si el contenido es más alto */
+  background-color: #fff; /* Fondo blanco para el carrito */
+  z-index: 999;
+  padding: 30px; /* Asegúrate de que esté sobre otros elementos pero debajo del menú */
+}

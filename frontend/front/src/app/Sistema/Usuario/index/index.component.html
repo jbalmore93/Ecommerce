@@ -1,27 +1,25 @@
-<table mat-table [dataSource]="usuarios" class="mat-elevation-z8">
-  <ng-container matColumnDef="id">
-    <th mat-header-cell *matHeaderCellDef> No. </th>
-    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
-  </ng-container>
+<div class="contenedor m-2 p-5">
+  <div class="m-5 p-5">
+  <mat-card color="primary" *ngFor="let item of usuarios" class="example-card carta w-25">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{item.nombre_producto | uppercase}}</mat-card-title>
+      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image class="img-thumbnail"
+    src="{{item.imagen_prod}}" alt="Photo of a Shiba Inu">
+    <mat-card-content>
+      <p class="text-black">
+        {{item.descripcion_producto | uppercase}}
+      </p>
+      <p class="text-black">
+        {{item.precio_producto| currency:'USD':'symbol':'1.2-2'}}
+      </p>
 
-  <!-- Name Column -->
-  <ng-container matColumnDef="nombre">
-    <th mat-header-cell *matHeaderCellDef> Name </th>
-    <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
-  </ng-container>
-
-  <!-- Weight Column -->
-  <ng-container matColumnDef="email">
-    <th mat-header-cell *matHeaderCellDef> Email </th>
-    <td mat-cell *matCellDef="let element"> {{element.email}} </td>
-  </ng-container>
-
-  <!-- Symbol Column -->
-  <ng-container matColumnDef="prioridad">
-    <th mat-header-cell *matHeaderCellDef> Prioridad </th>
-    <td mat-cell *matCellDef="let element"> {{element.prioridad}} </td>
-  </ng-container>
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
+    </mat-card-content>
+    <mat-card-actions class="m-2">
+      <button mat-button color="primary" (click)="enviarNumero(item.precio_producto,item.nombre_producto)">Añadir</button>
+    </mat-card-actions>
+  </mat-card>
+  </div>
+</div>
